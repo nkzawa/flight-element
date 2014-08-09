@@ -28,7 +28,7 @@ bower install --save flight-element
 
 ## API documentation
 
-### element.registerelement(type, options)
+### element.registerElement(type, options)
 
 Register a new custom element and returns its component constructor. The `type` must contain a dash (-).
 
