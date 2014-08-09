@@ -1,0 +1,33 @@
+{
+  "name": "flight-element",
+  "main": "flight-element.js",
+  "version": "0.0.0",
+  "license": "MIT",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "flight",
+    "webcomponents",
+    "directive",
+    "element",
+    "tag"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flight": "~1.2.0"
+  },
+  "devDependencies": {
+    "expect": "~0.3.1",
+    "mocha-flight": "~0.3.0"
+  }
+}
