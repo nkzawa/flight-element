@@ -47,7 +47,7 @@ function fooButton() {
 <button f-is="x-foo-button" f-hoverClass="hover"></button>
 ```
 
-### element.upgradeElement(selector, [type])
+### element.upgradeElement(selector [, type])
 
 Upgrade selected elements and descendants.
 
@@ -58,7 +58,7 @@ element.upgradeElement('.container', 'x-foo-button');
 
 ### element.prefix
 
-Setting for the attribute prefix.
+Setting for the attribute prefix. It default to `f`.
 
 ```js
 element.prefix = null;
