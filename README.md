@@ -2,7 +2,7 @@ flight-element
 ==============
 [![Build Status](https://travis-ci.org/nkzawa/flight-element.svg)](https://travis-ci.org/nkzawa/flight-element)
 
-Flight mixin for creating custom elements .
+Flight mixin for creating custom elements.
 
 ```js
 var element = require('flight-element');
@@ -30,7 +30,7 @@ bower install --save flight-element
 
 ### element.registerElement(type, options)
 
-Register a new custom element and returns its component constructor. The `type` must contain a dash (-).
+Register a new custom element and returns its component constructor. Also all existing elements would be upgraded. The `type` must contain a dash (-).
 
 ```js
 var FooButton = element.registerelement('x-foo-button', {
@@ -49,7 +49,7 @@ function fooButton() {
 
 ### element.upgradeElement(selector [, type])
 
-Upgrade selected elements and descendants.
+Upgrade selected elements and its descendants to registered custom elements.
 
 ```js
 element.upgradeElement(document);
@@ -86,11 +86,17 @@ this.renderContent('Hello, <span f-is="content"/>');
 <div f-is="x-foo"><span class="name">World<span></div>
 ```
 
+Result:
+
+```html
+<div f-is="x-foo">Hello, <span class="name">World<span></div>
+```
+
 ### this.upgradeElement([attr])
 
 Upgrade all matching elements within the component's `node`.
 
-```
+```js
 this.attributes({ item: '.item' });
 this.upgradeElement('item');
 ```
