@@ -107,7 +107,20 @@ define(function(require) {
 
         this.$node = $('<div f-foo="hi" f-bar="42"/>').attr('f-is', type).appendTo('body');
         element.upgradeElement(document);
-        expect(findComponent(this.$node).attr).to.eql({ foo: 'hi', bar: '42'});
+        expect(findComponent(this.$node).attr).to.eql({ foo: 'hi', bar: '42' });
+      });
+
+      it.only('should append attributes as boolean', function() {
+        var type = generateType()
+        element.registerElement(type, {
+          component: this.Component.mixin(function() {
+            this.attributes({ foo: false });
+          })
+        });
+
+        this.$node = $('<div f-foo/>').attr('f-is', type).appendTo('body');
+        element.upgradeElement(document);
+        expect(findComponent(this.$node).attr).to.eql({ foo: true });
       });
 
       it('should upgrade only specified tags by extends option', function() {
