@@ -110,7 +110,7 @@ define(function(require) {
         expect(findComponent(this.$node).attr).to.eql({ foo: 'hi', bar: '42' });
       });
 
-      it.only('should append attributes as boolean', function() {
+      it('should append attributes as boolean', function() {
         var type = generateType()
         element.registerElement(type, {
           component: this.Component.mixin(function() {
