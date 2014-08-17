@@ -98,7 +98,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(re
     }
 
     /**
-     * teardown all children components
+     * teardown all child components
      */
     this.before('teardown', function() {
       var instanceInfo = flightRegistry.findInstanceInfo(this);
@@ -132,19 +132,24 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(re
     if (registry[name]) {
       throw new Error('DuplicateDefinitionError: a type with name \'' + String(name) + '\' is already registered');
     }
-    if (!definition.component) {
+
+    var Component = definition.component;
+    if (!Component) {
       throw new Error('Options missing required component property');
     }
 
     // ensure to mixin flight-element
-    definition.component = definition.component.mixin(element);
+    var mixedIn = Component.prototype.mixedIn || [];
+    if (mixedIn.indexOf(element) < 0) {
+      definition.component = Component = Component.mixin(element);
+    }
 
     registry[name] = definition;
 
     // upgrade all existing nodes
     element.upgradeElement(document, name);
 
-    return definition.component;
+    return Component;
   };
 
   element.upgradeElement = function(el, name) {
@@ -175,7 +180,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(re
         var key = attr.name.substr(attrPrefix.length);
         if (!key) return;
 
-        attrs[key] = attr.value;
+        attrs[key] = attr.value === '' ? true : attr.value;
       });
 
       definition.component.attachTo(e, attrs);
