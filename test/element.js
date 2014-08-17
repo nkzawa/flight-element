@@ -19,7 +19,8 @@ define(function(require) {
         var Component = element.registerElement(generateType(), {
           component: this.Component
         });
-        expect(Component.prototype).to.be.a(this.Component);
+        expect(Component).to.be.a('function');
+        expect(Component.attachTo).to.be.a('function');
       });
 
       it('should upgrade all elements', function() {
