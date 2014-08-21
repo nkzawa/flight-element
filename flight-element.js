@@ -165,7 +165,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function(re
       var definition = registry[_name];
       if (!definition) return;
 
-      var nodeName = definition.extends;
+      var nodeName = definition['extends'];
       if (nodeName && nodeName.toLowerCase() !== e.nodeName.toLowerCase()) {
         // doesn't match with the specified tag
         return;
