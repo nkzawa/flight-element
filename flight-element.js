@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["flight/lib/registry"], factory);
 	else if(typeof exports === 'object')
-		exports["flight-element"] = factory(require("flight")["registry"]);
+		exports["flightElement"] = factory(require("flight")["registry"]);
 	else
-		root["flight-element"] = factory(root["flight"]["registry"]);
+		root["flightElement"] = factory(root["flight"]["registry"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
