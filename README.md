@@ -33,7 +33,7 @@ bower install --save flight-element
 Register a new custom element and returns its component constructor. Also all existing elements would be upgraded. The `type` must contain a dash (-).
 
 ```js
-var FooButton = element.registerelement('x-foo-button', {
+var FooButton = element.registerElement('x-foo-button', {
   component: defineComponent(fooButton),
   extends: 'button'
 });
