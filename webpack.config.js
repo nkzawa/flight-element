@@ -2,7 +2,7 @@ module.exports = {
   entry: './lib/index',
   output: {
     filename: 'flight-element.js',
-    library: 'flight-element',
+    library: 'flightElement',
     libraryTarget: 'umd',
     sourcePrefix: ''
   },
